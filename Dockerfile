@@ -13,9 +13,17 @@ RUN apt-get update -qq \
         tmux gettext python3.4 python3.4-dev python3-pip libxml2-dev \
         libxslt-dev libpq-dev virtualenv \
         nginx \
+	postgresql postgresql-contrib \
+  	postgresql-doc sudo \
     && rm -rf -- /var/lib/apt/lists/*
 
 RUN pip3 install circus gunicorn
+
+USER root
+RUN  service postgresql start && \   
+  sudo -u postgres psql -c "CREATE USER taiga WITH PASSWORD 'test101';" && \
+  sudo -u postgres createdb taiga -O taiga && \
+  echo 'taiga ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
 
 # Create taiga user
 ENV USER taiga
@@ -52,4 +60,4 @@ VOLUME [ "$DATA/static", \
          "$DATA/media" ]
 
 COPY launch /
-CMD /launch
+CMD service postgresql start && /launch

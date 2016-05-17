@@ -37,6 +37,7 @@ export EMAIL_BACKEND=${EMAIL_BACKEND:-django.core.mail.backends.smtp.EmailBacken
 envsubst < /tmp/taiga.tmpl > /etc/nginx/sites-enabled/taiga
 envsubst < /tmp/circus.ini.tmpl > $DATA/circus.ini
 envsubst < /tmp/conf.json.tmpl > $DATA/taiga-front-dist/dist/conf.json
+#envsubst < /tmp/app-loader.js.tmpl > $DATA/taiga-front-dist/dist/v-1461931321319/js/app-loader.js
 envsubst < /tmp/local.py.tmpl > $DATA/taiga-back/settings/local.py
 envsubst < /tmp/already_initialized.tmpl > /already_initialized
 chmod +x /already_initialized
