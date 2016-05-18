@@ -3,11 +3,11 @@ from .common import *
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '${TAIGA_DB_NAME}',
-        'USER': '${TAIGA_DB_USER}',
-        'PASSWORD': '${TAIGA_DB_PASSWORD}',
-        'HOST': '${TAIGA_DB_HOST}',
-        'PORT': '${TAIGA_DB_PORT}',
+        'NAME': 'taiga',
+        'USER': 'taiga',
+        'PASSWORD': 'test101',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
