@@ -1,6 +1,8 @@
 Taiga in Docker
 ===============
 
+Trial Build of Taiga v3, released 2nd October 2016
+
 This container allows you to run [Taiga](https://taiga.io/) in a Docker container.
 
 What is Taiga?
